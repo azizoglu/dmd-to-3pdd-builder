@@ -1,0 +1,12 @@
+{
+    "drinking": 0,
+    "hair_and_makeup": 1,
+    "phonecall_left": 2,
+    "phonecall_right": 3,
+    "radio": 4,
+    "reach_side": 5,
+    "safe_drive": 6,
+    "talking_to_passenger": 7,
+    "texting_left": 8,
+    "texting_right": 9
+  }

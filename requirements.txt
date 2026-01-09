@@ -1,0 +1,18 @@
+# 3PDD Dataset Builder Requirements
+# Python 3.7+
+
+# No external dependencies required for basic functionality
+# Standard library modules used:
+# - pathlib
+# - json
+# - shutil
+# - os
+# - re
+# - typing
+# - concurrent.futures
+# - multiprocessing
+# - time
+# - abc
+
+# Optional: For better performance monitoring
+# psutil>=5.8.0
