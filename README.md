@@ -8,6 +8,61 @@ The **3 Perspective Driver Dataset (3PDD)** is built using one of the most compr
 
 The DMD is a multi-modal dataset specifically designed for Driver Monitoring Systems (DMS), featuring synchronized recordings from multiple cameras (body, face, hands) and multiple streams (RGB, Depth, IR) in real car and driving simulator scenarios.
 
+### The 3PDD Dataset: A Balanced Multi-Modal Dataset for Driver Distraction Detection
+
+The 3PDD dataset represents a carefully curated and balanced multi-perspective dataset designed for real-world driver distraction detection scenarios. Unlike other datasets in the literature, 3PDD offers a unique combination of features that make it particularly suitable for comprehensive driver monitoring research.
+
+#### Multi-Perspective Architecture
+
+3PDD captures driver behavior from three distinct camera perspectives:
+- **Body Camera**: Full upper body view of the driver
+- **Face Camera**: Face-focused view for detailed facial expression analysis
+- **Hands Camera**: Hands and steering wheel view for gesture recognition
+
+This multi-perspective approach enables comprehensive analysis of driver behavior from different angles, providing complementary information that significantly improves distraction detection accuracy.
+
+#### Balanced Distribution of Distraction Behaviors
+
+The dataset includes 10 different driver distraction behaviors, carefully balanced to ensure equal representation. Each behavior category contains exactly the same number of images across all three perspectives:
+
+| Driver Distraction Behaviors | Body | Face | Hands | Total Images |
+|------------------------------|------|------|-------|--------------|
+| Drinking | 3825 | 3825 | 3825 | 11475 |
+| Hair and makeup | 3825 | 3825 | 3825 | 11475 |
+| Talking on the phone left | 3825 | 3825 | 3825 | 11475 |
+| Talking on the phone right | 3825 | 3825 | 3825 | 11475 |
+| Operating the radio | 3825 | 3825 | 3825 | 11475 |
+| Reaching behind/side | 3825 | 3825 | 3825 | 11475 |
+| Safe drive | 3825 | 3825 | 3825 | 11475 |
+| Talking to passenger | 3825 | 3825 | 3825 | 11475 |
+| Texting left | 3825 | 3825 | 3825 | 11475 |
+| Texting right | 3825 | 3825 | 3825 | 11475 |
+| **Total** | **38250** | **38250** | **38250** | **114750** |
+
+This balanced distribution ensures that models trained on 3PDD do not suffer from class imbalance issues, leading to more robust and fair performance across all distraction categories.
+
+#### Data Leakage Prevention Through Driver-Based Split
+
+A critical feature of 3PDD is its rigorous approach to preventing data leakage. Each driver appears only in one of the three sets (training, validation, or testing), ensuring that the model never sees the same person during different phases:
+
+- **Training Set**: 17 drivers × 135 images per driver = 2,295 images per class
+- **Validation Set**: 5 drivers × 153 images per driver = 765 images per class  
+- **Testing Set**: 5 drivers × 153 images per driver = 765 images per class
+
+This driver-based split strategy ensures that the model generalizes to unseen individuals rather than simply memorizing specific drivers' characteristics, which is crucial for real-world deployment.
+
+#### Real-World Applicability
+
+3PDD is designed with real-world scenarios in mind, featuring several characteristics that distinguish it from other datasets:
+
+1. **High-Quality Resolution**: Consistent image quality across all perspectives ensures reliable feature extraction
+2. **Balanced Class Distribution**: Equal representation of all 10 distraction behaviors prevents model bias
+3. **Driver-Based Split**: Eliminates data leakage and ensures true generalization capability
+4. **Multi-Modal Organization**: Three synchronized perspectives for each scenario enable multi-view learning approaches
+5. **Comprehensive Coverage**: 114,750 total images provide sufficient data for deep learning models
+
+This unique combination makes 3PDD an invaluable resource for researchers developing robust, real-world driver monitoring systems.
+
 ### Learn More About DMD
 
 - **GitHub Repository**: [Vicomtech/DMD-Driver-Monitoring-Dataset](https://github.com/Vicomtech/DMD-Driver-Monitoring-Dataset)
@@ -122,19 +177,19 @@ Choice: 1
 
 ## Features
 
-### ⚡ High Performance
+### High Performance
 
 - **Parallel Processing**: Utilizes multi-core CPUs for fast indexing
 - **Smart Indexing**: Handles millions of files efficiently
 - **Real-time Progress**: Live updates during processing
 - **Optimized for Large Datasets**: Designed to handle 50M+ files
 
-### 🔍 Flexible Matching
+### Flexible Matching
 
 - **Exact filename matching**: Fast lookup for identical filenames
 - **Normalized matching**: Handles variations in filenames (special characters, separators)
 
-### 📊 Progress Tracking
+### Progress Tracking
 
 ```
 Indexing: E:\DMD\DMD_Main_Dataset
@@ -266,6 +321,16 @@ dmd-to-3pdd-builder/
 If using 3PDD for driver distraction detection, consider citing:
 
 ```bibtex
+@article{meld3_2024,
+  title={MELD3: Integrating Multi-Task Ensemble Learning for Driver Distraction Detection},
+  author={[Authors]},
+  journal={IEEE Access},
+  year={2024},
+  doi={10.1109/ACCESS.2024.3509033}
+}
+```
+
+```bibtex
 @inproceedings{ortega2020dmd,
   title={DMD: A Large-Scale Multi-modal Driver Monitoring Dataset for Attention and Alertness Analysis},
   author={Ortega, Juan Diego and Kose, Neslihan and Ca{\~n}as, Paola and Chao, Min-An and Unnervik, Alexander and Nieto, Marcos and Otaegui, Oihana and Salgado, Luis},
@@ -274,16 +339,6 @@ If using 3PDD for driver distraction detection, consider citing:
   year={2020},
   publisher={Springer},
   doi={10.1007/978-3-030-66823-5_23}
-}
-```
-
-```bibtex
-@article{meld3_2024,
-  title={MELD3: Integrating Multi-Task Ensemble Learning for Driver Distraction Detection},
-  author={[Authors]},
-  journal={IEEE Access},
-  year={2024},
-  doi={10.1109/ACCESS.2024.3509033}
 }
 ```
 
@@ -325,4 +380,4 @@ For issues related to:
 
 ---
 
-**Developed with ❤️ for the driver monitoring research community**
+**Developed with ❤️ by [ERUVision](https://vision.erciyes.edu.tr/) for the driver monitoring research community**
